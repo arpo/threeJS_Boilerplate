@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>ThreeJS Boilerplate</title>
+    <style media="screen">
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="ThreeJS"></div>
+
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/three.js/r77/three.min.js'></script>
+    <script src="js/tbp.js"></script>
+    <script type="text/javascript">
+
+        //Init it.
+        MOS.tbp.run({hideAxis: true});
+
+        //Add a box
+        var myBox = new THREE.Mesh(new THREE.BoxGeometry(30, 30, 30), new THREE.MeshLambertMaterial({
+            color: 0x888800
+        }));
+        MOS.tbp.scene.add(myBox);
+
+        //Do things on frame tick
+        MOS.tbp.tick = function () {
+
+            myBox.rotation.y += 0.05;
+
+        };
+
+    </script>
+
+</body>
+
+</html>
